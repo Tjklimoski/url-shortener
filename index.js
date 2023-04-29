@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import urlShortener from './urlShortener.js';
+import urlShortener from './models/urlShortener.js';
 
 dotenv.config();
 
@@ -27,6 +27,7 @@ app.post('/shortenUrl', async (req, res) => {
 
 app.get('/:shortUrl', async (req, res) => {
   const url = await urlShortener.findOne({short: req.params.shortUrl});
+  if (url == null) return res.sendStatus(404);
 
   url.count++;
   url.save();
