@@ -15,12 +15,14 @@ mongoose.connect(
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true}));
 
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  const urls = await urlShortener.find();
+  res.render('index', {urls: urls});
 })
 
-app.post('/shortenUrl', (req, res) => {
-  res.redirect('/')
+app.post('/shortenUrl', async (req, res) => {
+  await urlShortener.create({full: req.body.fullUrl});
+  res.redirect('/');
 });
 
 app.listen(port, err => err ? console.error(err) : console.log(`index.js running on port ${port}`))
