@@ -18,7 +18,7 @@
   <div class="container-fluid p-4">
     <h1>URL Shortener</h1>
 
-    <form class="row gx-2">
+    <form action="/shortenUrl" method="POST" class="row gx-2">
       <label for="fullUrl" class="visually-hidden">URL</label>
       <input class="col form-control" placeholder="URL" type="url" name="fullUrl" id="fullUrl" required />
       <button type="submit" class="btn btn-success col-1 ms-2">Shorten</button>
