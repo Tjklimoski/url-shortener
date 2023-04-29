@@ -44,7 +44,7 @@
               <a href="<%= short %>">
                 <%= short %>
               </a>
-              <button data-copy="<%= short %>" class="ms-1 bg-dark btn rounded-5 text" onclick="sendUrlToClipboard(this)">
+              <button data-short-url="<%= short %>" class="ms-1 bg-dark btn rounded-5 text" onclick="sendUrlToClipboard(this)">
                 <i class="fa-regular fa-copy"></i>
               </button>
             </td>
@@ -57,8 +57,8 @@
   </div>
   <script>
     function sendUrlToClipboard(el) {
-      const url = 'http://localhost:3000/' + el.getAttribute('data-copy');
-      return navigator.clipboard.writeText(url)
+      const url = window.location.href + el.getAttribute('data-short-url');
+      return navigator.clipboard.writeText(url);
     }
   </script>
 </body>
