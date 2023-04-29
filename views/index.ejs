@@ -14,15 +14,17 @@
 
   <title>URL Shortener</title>
 </head>
-<body>
-  <div class="container">
+<body data-bs-theme="dark">
+  <div class="container-fluid p-4">
     <h1>URL Shortener</h1>
-    <form class="my-4" action="/shortenUrl" method="POST">
-      <label for="fullUrl" class="d-none">URL</label>
-      <input class="form-control-lg col" placeholder="URL" type="url" name="fullUrl" id="fullUrl" required/>
-      <button type="submit" class="btn btn-primary btn-lg">Shorten</button>
+
+    <form class="row gx-2">
+      <label for="fullUrl" class="visually-hidden">URL</label>
+      <input class="col form-control" placeholder="URL" type="url" name="fullUrl" id="fullUrl" required />
+      <button type="submit" class="btn btn-success col-1 ms-2">Shorten</button>
     </form>
-    <table class="table table-responsive table-striped table-hover">
+
+    <table class="table table-responsive table-hover">
       <thead>
         <tr>
           <th>URL</th>
@@ -38,6 +40,7 @@
         </tr>
       </tbody>
     </table>
+
   </div>
 </body>
 </html>
