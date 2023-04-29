@@ -25,4 +25,9 @@ app.post('/shortenUrl', async (req, res) => {
   res.redirect('/');
 });
 
+app.get('/:shortUrl', async (req, res) => {
+  const {full: fullUrl} = await urlShortener.findOne({short: req.params.shortUrl});
+  res.redirect(fullUrl);
+})
+
 app.listen(port, err => err ? console.error(err) : console.log(`index.js running on port ${port}`))
